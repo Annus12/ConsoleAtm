@@ -1,0 +1,14 @@
+E:\ConsoleAtm\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.exe
+E:\ConsoleAtm\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.deps.json
+E:\ConsoleAtm\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.runtimeconfig.json
+E:\ConsoleAtm\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.runtimeconfig.dev.json
+E:\ConsoleAtm\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.dll
+E:\ConsoleAtm\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.pdb
+E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.csproj.AssemblyReference.cache
+E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.GeneratedMSBuildEditorConfig.editorconfig
+E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.AssemblyInfoInputs.cache
+E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.AssemblyInfo.cs
+E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.csproj.CoreCompileInputs.cache
+E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.dll
+E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.pdb
+E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.genruntimeconfig.cache
