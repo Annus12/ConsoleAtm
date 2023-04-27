@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 
 public class CardHolder
 {
+
+    //For Creating A DataTable
+    DataTable dt = new DataTable();
+    //Get The Conneaction Form The The app.Config
+    string constr = ConfigurationManager.ConnectionStrings["DB_ATMEntities"].ConnectionString;
+
+
+
     string Cardnum;
     int pin;
     string FirstName;
     string Lastname;
     int balance;
-    public CardHolder(string Cardnum,int pin,string FirstName, string Lastname,int balance)
+    public CardHolder(string Cardnum, int pin, string FirstName, string Lastname, int balance)
     {
         this.Cardnum = Cardnum;
         this.pin = pin;
@@ -50,16 +61,18 @@ public class CardHolder
         pin = newpin;
     }
 
-    public void setfirstname(string newFirstName) {
+    public void setfirstname(string newFirstName)
+    {
         FirstName = newFirstName;
     }
 
-    public void setLastName(string newLastName) 
+    public void setLastName(string newLastName)
     {
         Lastname = newLastName;
     }
 
-    public void setBalance(int newBalance) {
+    public void setBalance(int newBalance)
+    {
 
         balance = newBalance;
     }
@@ -72,65 +85,148 @@ public class CardHolder
             Console.WriteLine("1. Deposite");
             Console.WriteLine("2. Withdrow");
             Console.WriteLine("3. Show Balance");
-            Console.WriteLine("4. Exite");
+            Console.WriteLine("4. You' Are Admin");
+            Console.WriteLine("5. Exite");
         }
 
 
-        void deposite(CardHolder CurrentUser)
+        void deposite(string depobalnce,string cardnum)
         {
             Console.WriteLine("How much $$ Would You Like To Deposite: ");
-            int deposit = int.Parse(Console.ReadLine());
-            CurrentUser.setBalance(CurrentUser.getBalance() + deposit);
-            Console.WriteLine("Thank you for $$ Your new balance is: " + CurrentUser.getBalance());
+            int deposit = int.Parse(Console.ReadLine()) + int.Parse(depobalnce);
+            string connstr = ConfigurationManager.ConnectionStrings["DB_ATMEntities"].ConnectionString;
+            string query = @"update USR_INFO
+                                set
+                                BALANCE = '"+ deposit +@"'
+                                where
+                                CARD_NUM = '"+cardnum+"'";
+            SqlConnection con = new SqlConnection(connstr);
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            Console.WriteLine("Thank you for $$ Your new balance is: " + deposit);
         }
 
-        void withdraw(CardHolder CurrentUser)
+        void withdraw(string withBalance,string CardNUm)
         {
             Console.WriteLine("How much $$ Would You Like To Withdraw: ");
-            int withdraw = int.Parse(Console.ReadLine());
+            int withdraws = int.Parse(Console.ReadLine());
             // cheack If User has eenogh money
-            if (CurrentUser.getBalance() > withdraw)
+            if (int.Parse(withBalance) > withdraws)
             {
-                CurrentUser.setBalance(CurrentUser.getBalance() - withdraw);
-                Console.WriteLine("Now Your's Current Balance :" +CurrentUser.getBalance()+" )");
+                int ProperBalance = int.Parse(withBalance) - withdraws;
+                string connstr = ConfigurationManager.ConnectionStrings["DB_ATMEntities"].ConnectionString;
+                string query = @"update USR_INFO
+                                    set
+                                    BALANCE = '"+ ProperBalance + @"'
+                                    where
+                                    CARD_NUM = '"+ CardNUm + "'";
+                SqlConnection con = new SqlConnection(connstr);
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                Console.WriteLine("Now Your's Current Balance :" + ProperBalance + " )");
                 Console.WriteLine("You're good to go ! Thank You :)");
             }
             else
             {
-   
+
                 Console.WriteLine("Insufficient Balance :(");
 
 
             }
         }
-         void balance(CardHolder currentUser)
+        void balance(string Balanc)
         {
-            Console.WriteLine("Current Balance: " + currentUser.getBalance());
+            Console.WriteLine("Current Balance: " + Balanc);
         }
 
-        List<CardHolder> cardholders = new List<CardHolder>();
-        cardholders.Add(new CardHolder("32476428374", 1234, "Annus", "Ahmed", 2300));
-        cardholders.Add(new CardHolder("34627346", 1235, "Minhaj", "Ahmed", 10000));
-        cardholders.Add(new CardHolder("231989837", 1204, "Ammad", "Ahmed", 8999));
-        cardholders.Add(new CardHolder("821873892", 0234, "Shakoor", "Ahmed", 9000));
-        cardholders.Add(new CardHolder("32847329847", 7898, "Amjad", "Ahmed", 9000));
+
+        void Admin(string cardNum)
+        {
+            if (cardNum == "111")
+            {
+                Console.WriteLine("Please Provide  a new Usr First Name ..");
+                string newUsrFirtname = Console.ReadLine();
+                Console.WriteLine("Please Provide  a new Usr Last Name ..");
+                string newUsrLastName = Console.ReadLine();
+                Console.WriteLine("Please Provide  a new Usr Card Number ..");
+                string newCardNum = Console.ReadLine();
+                Console.WriteLine("Please Provide  a new Usr Pin ..");
+                string newPin = Console.ReadLine();
+                Console.WriteLine("And Last Provide Initial Balance ..");
+                string newbalance = Console.ReadLine();
+
+                string constr = ConfigurationManager.ConnectionStrings["DB_ATMEntities"].ConnectionString;
+                string query = @"insert into USR_INFO
+                                (CARD_NUM,PIN,FIRST_NAME,LAST_NAME,BALANCE)
+                                values
+                                ('"+ newCardNum + "','"+ newPin + "','"+ newUsrFirtname + "','"+ newUsrLastName + "','"+ newbalance + "')";
+                SqlConnection con = new SqlConnection(constr);
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                Console.WriteLine("Congratulation's You Created The New User");
+                printOption();
+
+            }
+            else
+            {
+                Console.WriteLine("You's Have Not Admin Permissions : )");
+            }
+
+            Console.WriteLine(Console.ReadLine());
+
+
+        }
+        //List<CardHolder> cardholders = new List<CardHolder>();
+        //cardholders.Add(new CardHolder("32476428374", 1234, "Annus", "Ahmed", 2300));
+        //cardholders.Add(new CardHolder("34627346", 1235, "Minhaj", "Ahmed", 10000));
+        //cardholders.Add(new CardHolder("231989837", 1204, "Ammad", "Ahmed", 8999));
+        //cardholders.Add(new CardHolder("821873892", 0234, "Shakoor", "Ahmed", 9000));
+        //cardholders.Add(new CardHolder("32847329847", 7898, "Amjad", "Ahmed", 9000));
 
         //Prompt User
 
         Console.WriteLine("Welcome To SimpeATM");
         Console.WriteLine("Please Insert Yous debit Card:");
 
-        string debitCardNum = "";
-        CardHolder currentuser;
+        //string debitCardNum = "";
+        //CardHolder currentuser;
+        int userPin = 0;
+        string FirstName = "";
+        string LastName = "";
+        int Balance = 0;
+        string CardNum = "";
         while (true)
         {
             try
             {
-                debitCardNum = Console.ReadLine();
+                DataTable dt = new DataTable();
+                string constr = ConfigurationManager.ConnectionStrings["DB_ATMEntities"].ConnectionString;
+                //debitCardNum = ;
+                CardNum = Console.ReadLine();
+                string query = @"select * from USR_INFO where CARD_NUM = '"+ CardNum + "'";
+
+                SqlConnection con = new SqlConnection(constr);
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                con.Close();
+                con.Dispose();
                 //cheack Over db
-                currentuser = cardholders.FirstOrDefault(a => a.Cardnum == debitCardNum);
-                if (currentuser != null)
+                //currentuser = cardholders.FirstOrDefault(a => a.Cardnum == debitCardNum);
+                if (dt.Rows.Count > 0)
                 {
+                    userPin = int.Parse(dt.Rows[0]["PIN"].ToString());
+                    FirstName = dt.Rows[0]["FIRST_NAME"].ToString();
+                    LastName = dt.Rows[0]["LAST_NAME"].ToString();
+                    Balance =int.Parse(dt.Rows[0]["BALANCE"].ToString());
                     break;
                 }
                 else
@@ -144,17 +240,17 @@ public class CardHolder
 
             }
 
-            
+
         }
         Console.WriteLine("Please Insert Your Pin");
-        int userPin = 0;
+        
         while (true)
         {
             try
             {
-                userPin = int.Parse(Console.ReadLine());
                 //cheack Over db
-                if (currentuser.getPin() == userPin)
+                
+                if (userPin == int.Parse(Console.ReadLine()))
                 {
                     break;
                 }
@@ -172,12 +268,12 @@ public class CardHolder
 
         }
 
-        Console.WriteLine("Welcome " + currentuser.getFirstName() + ":)");
+        Console.WriteLine("Welcome " + FirstName+" "+ LastName + ":)");
         int Option = 0;
         do
         {
             printOption();
-            try 
+            try
             {
                 Option = int.Parse(Console.ReadLine());
             }
@@ -188,17 +284,21 @@ public class CardHolder
 
             if (Option == 1)
             {
-                deposite(currentuser);
+                deposite(Balance.ToString(), CardNum);
             }
             if (Option == 2)
             {
-                withdraw(currentuser);
+               withdraw(Balance.ToString(), CardNum);
             }
             if (Option == 3)
             {
-                balance(currentuser);
-            } 
-        } while (Option != 4);
+                balance(Balance.ToString());
+            }
+            if (Option == 4)
+            {
+                Admin(CardNum);
+            }
+        } while (Option != 5);
         {
             Console.WriteLine("Thank You Have A Nice Day");
         }
