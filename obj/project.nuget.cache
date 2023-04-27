@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z2FYLmZIJejLtJOCWQCKaudGzFJvsuQcPDMP3pa41lxpJWmJLRUWpC+hjkgjKpVFYSyqiFNjAsGSDf2A0wKjBg==",
+  "dgSpecHash": "0hSP7o0/Ka37xgB1juEaA+g/wt5xa0rWA40q+jc+4QoIVhNTGPUyN9r5ajEbxUhQ2jP6/5tUZYm46cytRF2J/A==",
   "success": true,
-  "projectFilePath": "E:\\ConsoleAtm\\ConsoleAtm\\ConsoleAtm.csproj",
+  "projectFilePath": "C:\\Users\\ci5\\Desktop\\atmConsole\\ConsoleAtm\\ConsoleAtm.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

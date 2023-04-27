@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ConsoleAtm\\ConsoleAtm\\ConsoleAtm.csproj",
+      "projectUniqueName": "C:\\Users\\ci5\\Desktop\\atmConsole\\ConsoleAtm\\ConsoleAtm.csproj",
       "projectName": "ConsoleAtm",
-      "projectPath": "E:\\ConsoleAtm\\ConsoleAtm\\ConsoleAtm.csproj",
+      "projectPath": "C:\\Users\\ci5\\Desktop\\atmConsole\\ConsoleAtm\\ConsoleAtm.csproj",
       "packagesPath": "C:\\Users\\ci5\\.nuget\\packages\\",
-      "outputPath": "E:\\ConsoleAtm\\ConsoleAtm\\obj\\",
+      "outputPath": "C:\\Users\\ci5\\Desktop\\atmConsole\\ConsoleAtm\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

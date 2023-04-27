@@ -12,3 +12,17 @@ E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.csproj.CoreCompileIn
 E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.dll
 E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.pdb
 E:\ConsoleAtm\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.genruntimeconfig.cache
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.exe
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.deps.json
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.runtimeconfig.json
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.runtimeconfig.dev.json
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.dll
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\bin\Debug\netcoreapp3.1\ConsoleAtm.pdb
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.csproj.AssemblyReference.cache
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.AssemblyInfoInputs.cache
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.AssemblyInfo.cs
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.csproj.CoreCompileInputs.cache
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.dll
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.pdb
+C:\Users\ci5\Desktop\atmConsole\ConsoleAtm\obj\Debug\netcoreapp3.1\ConsoleAtm.genruntimeconfig.cache

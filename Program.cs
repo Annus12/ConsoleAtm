@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 public class CardHolder
 {
@@ -89,12 +91,15 @@ public class CardHolder
             // cheack If User has eenogh money
             if (CurrentUser.getBalance() > withdraw)
             {
-                Console.WriteLine("Insufficient Balance :(");
+                CurrentUser.setBalance(CurrentUser.getBalance() - withdraw);
+                Console.WriteLine("Now Your's Current Balance :" +CurrentUser.getBalance()+" )");
+                Console.WriteLine("You're good to go ! Thank You :)");
             }
             else
             {
-                CurrentUser.setBalance(CurrentUser.getBalance() - withdraw);
-                Console.WriteLine("You're good to go ! Thank You :)");
+   
+                Console.WriteLine("Insufficient Balance :(");
+
 
             }
         }
@@ -191,7 +196,7 @@ public class CardHolder
             }
             if (Option == 3)
             {
-                withdraw(currentuser);
+                balance(currentuser);
             } 
         } while (Option != 4);
         {
